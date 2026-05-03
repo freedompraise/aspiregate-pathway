@@ -15,7 +15,6 @@ import {
   Sparkles,
   Users,
   HeartHandshake,
-  CheckCircle2,
 } from "lucide-react";
 import Layout from "@/components/site/Layout";
 import SectionHeading from "@/components/site/SectionHeading";
@@ -47,7 +46,16 @@ const services = [
   { icon: HeartHandshake, title: "Post-Arrival Guidance", desc: "Continued support with practical next steps after you arrive." },
 ];
 
-const destinations = ["United Kingdom", "Canada", "United States", "Ireland", "Germany", "Australia", "France", "United Arab Emirates"];
+const destinations = [
+  { name: "United Kingdom", flag: "🇬🇧" },
+  { name: "Canada", flag: "🇨🇦" },
+  { name: "United States", flag: "🇺🇸" },
+  { name: "Ireland", flag: "🇮🇪" },
+  { name: "Germany", flag: "🇩🇪" },
+  { name: "Australia", flag: "🇦🇺" },
+  { name: "France", flag: "🇫🇷" },
+  { name: "United Arab Emirates", flag: "🇦🇪" },
+];
 
 const steps = [
   { n: "01", title: "Book a Free Consultation", desc: "Tell us about your background, goals, preferred destination, and timeline." },
@@ -73,26 +81,21 @@ const Index = () => (
         backgroundImage: "radial-gradient(circle at 20% 20%, white 1px, transparent 1px), radial-gradient(circle at 80% 60%, white 1px, transparent 1px)",
         backgroundSize: "50px 50px",
       }} />
-      <div className="container relative grid md:grid-cols-2 gap-12 items-center py-20 md:py-28">
+      <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-accent/30 blur-3xl animate-pulse" />
+      <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-primary-glow/40 blur-3xl animate-pulse" style={{ animationDelay: "1.5s" }} />
+      <div className="container relative grid md:grid-cols-2 gap-12 items-center py-24 md:py-32">
         <div className="animate-fade-up text-primary-foreground">
           <span className="inline-flex items-center gap-2 rounded-full bg-white/15 backdrop-blur px-4 py-1.5 text-xs font-semibold border border-white/20">
-            <Sparkles className="h-3.5 w-3.5 text-gold" /> Free Study Abroad Guidance
+            <Sparkles className="h-3.5 w-3.5 text-gold animate-pulse" /> Free Study Abroad Guidance
           </span>
-          <h1 className="mt-5 text-4xl md:text-6xl font-bold leading-[1.1]">
-            Study Abroad from Nigeria With Clear Guidance at <span className="text-accent-glow">No Cost</span> to You
+          <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-[1.1]">
+            Study Abroad from Nigeria — at <span className="text-accent-glow">No Cost</span> to You
           </h1>
           <p className="mt-5 text-lg text-primary-foreground/85 leading-relaxed max-w-xl">
-            AspireGate Services Limited helps Nigerian students and professionals take the right steps toward studying abroad — from choosing a course to preparing documents, applications, visas, and arrival.
+            Honest, end-to-end guidance from your first consultation to your arrival abroad.
           </p>
-          <ul className="mt-6 grid sm:grid-cols-2 gap-2 text-sm text-primary-foreground/90">
-            {["Free study abroad guidance", "Admission support for international universities", "Document & application guidance", "Student visa document support"].map((b) => (
-              <li key={b} className="flex items-start gap-2">
-                <CheckCircle2 className="h-5 w-5 text-accent-glow shrink-0 mt-0.5" /> {b}
-              </li>
-            ))}
-          </ul>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button asChild variant="hero" size="xl">
+            <Button asChild variant="hero" size="xl" className="hover:scale-105 transition-transform">
               <a href="https://calendly.com/aspiregateconsultingservices/consultation" target="_blank" rel="noreferrer">
                 Book a Free Consultation <ArrowRight className="ml-1 h-4 w-4" />
               </a>
@@ -103,28 +106,16 @@ const Index = () => (
               </a>
             </Button>
           </div>
-          <p className="mt-5 text-sm text-primary-foreground/70">
-            No pressure. No confusing process. Just honest guidance from your first consultation to your next step abroad.
-          </p>
         </div>
-        <div className="relative animate-fade-up">
-          <div className="absolute -inset-4 bg-accent/30 blur-3xl rounded-full" />
+        <div className="relative animate-fade-up hidden md:block" style={{ animationDelay: "0.2s" }}>
+          <div className="absolute -inset-4 bg-accent/30 blur-3xl rounded-full animate-pulse" />
           <img
             src={heroImg}
             alt="Nigerian student preparing to study abroad with passport and laptop"
             width={1280}
             height={1024}
-            className="relative rounded-3xl shadow-elegant"
+            className="relative rounded-3xl shadow-elegant hover:scale-[1.02] transition-transform duration-500"
           />
-          <div className="absolute -bottom-6 -left-6 bg-card text-card-foreground rounded-2xl shadow-card p-4 flex items-center gap-3 max-w-xs">
-            <div className="h-10 w-10 rounded-xl bg-gradient-cta flex items-center justify-center">
-              <GraduationCap className="h-5 w-5 text-accent-foreground" />
-            </div>
-            <div>
-              <p className="text-xs text-muted-foreground">Application to Arrival</p>
-              <p className="text-sm font-semibold">End-to-end support</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -241,9 +232,9 @@ const Index = () => (
       />
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {destinations.map((d) => (
-          <Card key={d} className="p-5 text-center hover:-translate-y-1 hover:shadow-elegant transition-smooth border-border/60">
-            <Globe2 className="h-6 w-6 text-accent mx-auto" />
-            <p className="mt-3 font-semibold text-primary">{d}</p>
+          <Card key={d.name} className="p-5 text-center hover:-translate-y-1 hover:shadow-elegant transition-smooth border-border/60 group">
+            <div className="text-4xl mx-auto group-hover:scale-110 transition-transform" aria-hidden>{d.flag}</div>
+            <p className="mt-3 font-semibold text-primary">{d.name}</p>
           </Card>
         ))}
       </div>

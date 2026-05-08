@@ -15,6 +15,7 @@ import {
   HeartHandshake,
   CheckCircle2,
 } from "lucide-react";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 
 const sections = [
   {
@@ -145,7 +146,7 @@ const Services = () => (
         </p>
         <div className="mt-8">
           <Button asChild variant="cta" size="xl">
-            <a href="https://calendly.com/aspiregateconsultingservices/consultation" target="_blank" rel="noreferrer">
+            <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
               Book a Free Consultation <ArrowRight className="ml-1 h-4 w-4" />
             </a>
           </Button>

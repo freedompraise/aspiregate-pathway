@@ -19,6 +19,7 @@ import {
 import Layout from "@/components/site/Layout";
 import SectionHeading from "@/components/site/SectionHeading";
 import CTASection from "@/components/site/CTASection";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 import heroImg from "@/assets/hero-student.jpg";
 
 const trust = [
@@ -96,12 +97,12 @@ const Index = () => (
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button asChild variant="hero" size="xl" className="hover:scale-105 transition-transform">
-              <a href="https://calendly.com/aspiregateconsultingservices/consultation" target="_blank" rel="noreferrer">
+              <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
                 Book a Free Consultation <ArrowRight className="ml-1 h-4 w-4" />
               </a>
             </Button>
             <Button asChild variant="heroOutline" size="xl">
-              <a href="#whatsapp">
+              <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noreferrer">
                 <MessageCircle className="mr-1 h-4 w-4" /> Chat on WhatsApp
               </a>
             </Button>
@@ -268,7 +269,7 @@ const Index = () => (
         </div>
         <div className="mt-12 text-center">
           <Button asChild variant="cta" size="lg">
-            <a href="https://calendly.com/aspiregateconsultingservices/consultation" target="_blank" rel="noreferrer">
+            <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
               Start Your Application Journey <ArrowRight className="h-4 w-4" />
             </a>
           </Button>

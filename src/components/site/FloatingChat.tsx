@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { MessageCircle, X } from "lucide-react";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 
 const FloatingChat = () => {
   const [visible, setVisible] = useState(false);
@@ -33,7 +34,7 @@ const FloatingChat = () => {
           <X className="h-3 w-3" />
         </button>
         <a
-          href="https://wa.me/2348000000000"
+          href={SITE_CONFIG.whatsappUrl}
           target="_blank"
           rel="noreferrer"
           aria-label="Chat on WhatsApp"

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { GraduationCap, Mail, MessageCircle } from "lucide-react";
+import { GraduationCap, Mail, MessageCircle, Phone } from "lucide-react";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 
 const Footer = () => (
   <footer className="border-t border-border bg-muted/40 mt-16">
@@ -35,10 +36,11 @@ const Footer = () => (
       <div>
         <h4 className="font-semibold text-foreground mb-3 text-sm">Contact</h4>
         <ul className="space-y-2 text-sm text-muted-foreground">
-          <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> <a href="mailto:admin@aspiregateservices.com" className="hover:text-primary">admin@aspiregateservices.com</a></li>
-          <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> <a href="mailto:info@aspiregateservices.com" className="hover:text-primary">info@aspiregateservices.com</a></li>
-          <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> <a href="mailto:partners@aspiregateservices.com" className="hover:text-primary">partners@aspiregateservices.com</a></li>
-          <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4" /> WhatsApp Advisor</li>
+          <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> <a href={`mailto:${SITE_CONFIG.primaryEmail}`} className="hover:text-primary">{SITE_CONFIG.primaryEmail}</a></li>
+          <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> <a href={`mailto:${SITE_CONFIG.consultationEmail}`} className="hover:text-primary">{SITE_CONFIG.consultationEmail}</a></li>
+          <li className="flex items-center gap-2"><Mail className="h-4 w-4" /> <a href={`mailto:${SITE_CONFIG.partnershipEmail}`} className="hover:text-primary">{SITE_CONFIG.partnershipEmail}</a></li>
+          <li className="flex items-center gap-2"><Phone className="h-4 w-4" /> {SITE_CONFIG.phoneNumber}</li>
+          <li className="flex items-center gap-2"><MessageCircle className="h-4 w-4" /> <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noreferrer" className="hover:text-primary">Chat on WhatsApp</a></li>
         </ul>
       </div>
     </div>

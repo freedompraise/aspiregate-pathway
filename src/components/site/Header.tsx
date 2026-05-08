@@ -1,7 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Menu, X } from "lucide-react";
+import { GraduationCap, Menu, MessageCircle, X } from "lucide-react";
 import { useState } from "react";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 
 const links = [
   { to: "/", label: "Home" },
@@ -38,11 +39,19 @@ const Header = () => {
           ))}
         </nav>
         <div className="hidden md:block">
-          <Button asChild variant="cta" size="sm">
-            <a href="https://calendly.com/aspiregateconsultingservices/consultation" target="_blank" rel="noreferrer">
-              Book Free Consultation
-            </a>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button asChild variant="outline" size="sm">
+              <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noreferrer">
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
+              </a>
+            </Button>
+            <Button asChild variant="cta" size="sm">
+              <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
+                Book Free Consultation
+              </a>
+            </Button>
+          </div>
         </div>
         <button
           className="md:hidden p-2 text-primary"
@@ -68,8 +77,14 @@ const Header = () => {
                 {l.label}
               </NavLink>
             ))}
-            <Button asChild variant="cta" className="mt-2">
-              <a href="https://calendly.com/aspiregateconsultingservices/consultation" target="_blank" rel="noreferrer">
+            <Button asChild variant="outline" className="mt-2">
+              <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noreferrer">
+                <MessageCircle className="h-4 w-4" />
+                Chat on WhatsApp
+              </a>
+            </Button>
+            <Button asChild variant="cta">
+              <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
                 Book Free Consultation
               </a>
             </Button>

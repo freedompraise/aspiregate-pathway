@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail } from "lucide-react";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 
 const CTASection = ({
   title = "Ready to Start Your Study Abroad Journey?",
@@ -16,12 +17,12 @@ const CTASection = ({
         <p className="mt-4 text-primary-foreground/85 max-w-2xl mx-auto text-lg">{subtitle}</p>
         <div className="mt-8 flex flex-wrap gap-4 justify-center">
           <Button asChild variant="hero" size="xl">
-            <a href="https://calendly.com/aspiregateconsultingservices/consultation" target="_blank" rel="noreferrer">
+            <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
               Book a Free Consultation <ArrowRight className="ml-1 h-4 w-4" />
             </a>
           </Button>
           <Button asChild variant="heroOutline" size="xl">
-            <a href="mailto:admin@aspiregateservices.com">
+            <a href={`mailto:${SITE_CONFIG.primaryEmail}`}>
               <Mail className="mr-1 h-4 w-4" /> Email AspireGate
             </a>
           </Button>

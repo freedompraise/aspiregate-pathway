@@ -246,6 +246,31 @@ const Index = () => (
       </div>
     </section>
 
+    {/* BLOG */}
+    <section className="bg-gradient-soft py-16 md:py-20">
+      <div className="container">
+        <div className="rounded-3xl border border-border/60 bg-background/80 px-8 py-10 md:px-12 md:py-12 md:flex md:items-center md:justify-between gap-8 shadow-card">
+          <div className="max-w-xl">
+            <span className="text-xs font-semibold uppercase tracking-wider text-accent">Resources</span>
+            <h2 className="mt-2 text-2xl md:text-3xl font-bold text-primary leading-tight">
+              Guides and study abroad articles
+            </h2>
+            <p className="mt-3 text-muted-foreground leading-relaxed">
+              Practical tips on applications, visas, scholarships, and student life for Nigerian students and
+              families. New articles are added regularly.
+            </p>
+          </div>
+          <div className="mt-6 md:mt-0 shrink-0">
+            <Button asChild variant="cta" size="lg">
+              <Link to="/blog">
+                Visit the blog <ArrowRight className="h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
+
     {/* PROCESS */}
     <section className="bg-primary py-20 text-primary-foreground">
       <div className="container">

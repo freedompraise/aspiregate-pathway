@@ -7,6 +7,9 @@ import Index from "./pages/Index.tsx";
 import Services from "./pages/Services.tsx";
 import Destinations from "./pages/Destinations.tsx";
 import Contact from "./pages/Contact.tsx";
+import BlogIndex from "./pages/blog/BlogIndex.tsx";
+import BlogPostPage from "./pages/blog/BlogPost.tsx";
+import BlogCategoryPage from "./pages/blog/BlogCategory.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -22,6 +25,9 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/destinations" element={<Destinations />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<BlogIndex />} />
+          <Route path="/blog/category/:categorySlug" element={<BlogCategoryPage />} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
 
-const siteUrl = import.meta.env.VITE_SITE_URL?.replace(/\/$/, "") ?? "";
+const siteUrl = "https://aspiregateservices.com";
 
 export function BlogSeo({
   title,

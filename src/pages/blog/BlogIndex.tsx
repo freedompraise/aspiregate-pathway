@@ -37,7 +37,7 @@ const BlogIndex = () => {
   return (
     <Layout>
       <BlogSeo
-        title="Study Abroad Resources for Nigerian Students | AspireGate Blog"
+        title="Resources for Study Abroad for Nigeria | AspireGate Blog"
         description="Guides on admission, visa preparation, scholarships, documents, and student life abroad — written for Nigerian students."
         path="/blog"
         ogType="website"
@@ -45,7 +45,7 @@ const BlogIndex = () => {
 
       <BlogHero
         title="Study Abroad Resources for Nigerian Students"
-        description="Practical articles on admission planning, visa preparation, scholarships and funding, documents, and everyday student life abroad — designed for Nigerian students and families."
+        description="Articles on admission planning, visa preparation, scholarships and funding, documents, and everyday student life abroad."
       />
 
       <section className="container py-12 md:py-16">

@@ -24,3 +24,4 @@ dist-ssr
 *.sw?
 /html_css
 .env
+package-lock.json

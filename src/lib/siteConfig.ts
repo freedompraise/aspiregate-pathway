@@ -5,4 +5,5 @@ export const SITE_CONFIG = {
   partnershipEmail: "partners@aspiregateservices.com",
   phoneNumber: "+2348121722035",
   whatsappUrl: "https://wa.me/2348121722035",
+  baseURL: "https://aspiregateservices.com",
 } as const;

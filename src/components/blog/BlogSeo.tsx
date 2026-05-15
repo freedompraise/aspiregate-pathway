@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
+import { SITE_CONFIG } from "@/lib/siteConfig";
 
-const siteUrl = "https://aspiregateservices.com";
+const siteUrl = SITE_CONFIG.baseURL;
 
 export function BlogSeo({
   title,

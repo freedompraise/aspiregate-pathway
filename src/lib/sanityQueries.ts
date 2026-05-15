@@ -28,6 +28,12 @@ export const allCategoriesQuery = `*[_type == "category"] | order(title asc) {
   description
 }`;
 
+/** For SSG: published post URL segments only */
+export const allPublishedPostSlugPathsQuery = `*[${publishedPostFilter}] { "slug": slug.current }`;
+
+/** For SSG: category URL segments only */
+export const allCategorySlugPathsQuery = `*[_type == "category" && defined(slug.current)] { "slug": slug.current }`;
+
 export const postBySlugQuery = `*[${publishedPostFilter} && slug.current == $slug][0]{
   ${postCardFields},
   "categoryRef": category._ref,

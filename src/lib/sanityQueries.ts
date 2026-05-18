@@ -34,6 +34,15 @@ export const allPublishedPostSlugPathsQuery = `*[${publishedPostFilter}] { "slug
 /** For SSG: category URL segments only */
 export const allCategorySlugPathsQuery = `*[_type == "category" && defined(slug.current)] { "slug": slug.current }`;
 
+/** For sitemap.xml: post URLs with last modified date */
+export const sitemapPostsQuery = `*[${publishedPostFilter}] {
+  "slug": slug.current,
+  "lastmod": coalesce(updatedAt, publishedAt)
+}`;
+
+/** For sitemap.xml: category URLs */
+export const sitemapCategoriesQuery = `*[_type == "category" && defined(slug.current)] { "slug": slug.current }`;
+
 export const postBySlugQuery = `*[${publishedPostFilter} && slug.current == $slug][0]{
   ${postCardFields},
   "categoryRef": category._ref,

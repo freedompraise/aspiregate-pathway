@@ -1,32 +1,31 @@
-import type { ComponentType } from "react";
 import type { RouteRecord } from "vite-react-ssg";
+import RouteErrorFallback from "@/components/RouteErrorFallback";
 import RootLayout from "@/RootLayout";
 import { getBlogCategoryStaticPaths, getBlogPostStaticPaths } from "@/lib/blogStaticPaths";
-
-const withDefault = (importer: () => Promise<{ default: ComponentType<object> }>) =>
-  importer().then((m) => ({ Component: m.default }));
+import { lazyPage } from "@/lib/lazyRoute";
 
 export const routes: RouteRecord[] = [
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <RouteErrorFallback />,
     children: [
-      { index: true, lazy: () => withDefault(() => import("@/pages/Index")) },
-      { path: "services", lazy: () => withDefault(() => import("@/pages/Services")) },
-      { path: "destinations", lazy: () => withDefault(() => import("@/pages/Destinations")) },
-      { path: "contact", lazy: () => withDefault(() => import("@/pages/Contact")) },
-      { path: "blog", lazy: () => withDefault(() => import("@/pages/blog/BlogIndex")) },
+      { index: true, lazy: lazyPage(() => import("@/pages/Index")) },
+      { path: "services", lazy: lazyPage(() => import("@/pages/Services")) },
+      { path: "destinations", lazy: lazyPage(() => import("@/pages/Destinations")) },
+      { path: "contact", lazy: lazyPage(() => import("@/pages/Contact")) },
+      { path: "blog", lazy: lazyPage(() => import("@/pages/blog/BlogIndex")) },
       {
         path: "blog/category/:categorySlug",
-        lazy: () => withDefault(() => import("@/pages/blog/BlogCategory")),
+        lazy: lazyPage(() => import("@/pages/blog/BlogCategory")),
         getStaticPaths: getBlogCategoryStaticPaths,
       },
       {
         path: "blog/:slug",
-        lazy: () => withDefault(() => import("@/pages/blog/BlogPost")),
+        lazy: lazyPage(() => import("@/pages/blog/BlogPost")),
         getStaticPaths: getBlogPostStaticPaths,
       },
-      { path: "*", lazy: () => withDefault(() => import("@/pages/NotFound")) },
+      { path: "*", lazy: lazyPage(() => import("@/pages/NotFound")) },
     ],
   },
 ];

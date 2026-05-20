@@ -34,7 +34,7 @@ const sections = [
   {
     icon: Compass,
     title: "Course and Country Selection",
-    lead: `The best destination for you depends on your course, budget, academic background, visa requirements, work goals, and long-term plans. Click <a href="/destinations" class="text-accent underline">here</a> to compare the best countries to study abroad.`,
+    lead: `The best destination for you depends on your course, budget, academic background, visa requirements, work goals, and long-term plans.`,
     items: [
       "Tuition expectations and entry requirements",
       "Available intakes and study duration",

@@ -1,10 +1,11 @@
+import { ApplyNowLink } from "@/components/site/ApplyNowLink";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Mail } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 
 const CTASection = ({
   title = "Ready to Start Your Study Abroad Journey?",
-  subtitle = "Your first step does not have to be complicated. Book a free consultation with AspireGate and get clear guidance on your best route to studying abroad.",
+  subtitle = "Share a few details about your goals. We will review your application and get back to you with clear next steps.",
 }: { title?: string; subtitle?: string }) => (
   <section className="container py-20">
     <div className="relative overflow-hidden rounded-3xl bg-gradient-hero p-10 md:p-16 text-center shadow-elegant">
@@ -17,9 +18,9 @@ const CTASection = ({
         <p className="mt-4 text-primary-foreground/85 max-w-2xl mx-auto text-lg">{subtitle}</p>
         <div className="mt-8 flex flex-wrap gap-4 justify-center">
           <Button asChild variant="hero" size="xl">
-            <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
-              Book a Free Consultation <ArrowRight className="ml-1 h-4 w-4" />
-            </a>
+            <ApplyNowLink>
+              Apply Now <ArrowRight className="ml-1 h-4 w-4" />
+            </ApplyNowLink>
           </Button>
           <Button asChild variant="heroOutline" size="xl">
             <a href={`mailto:${SITE_CONFIG.primaryEmail}`}>

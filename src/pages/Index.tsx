@@ -16,6 +16,7 @@ import {
   Users,
   HeartHandshake,
 } from "lucide-react";
+import { ApplyNowLink } from "@/components/site/ApplyNowLink";
 import Layout from "@/components/site/Layout";
 import SectionHeading from "@/components/site/SectionHeading";
 import CTASection from "@/components/site/CTASection";
@@ -59,7 +60,7 @@ const destinations = [
 ];
 
 const steps = [
-  { n: "01", title: "Book a Free Consultation", desc: "Tell us about your background, goals, preferred destination, and timeline." },
+  { n: "01", title: "Apply for a free consultation", desc: "Submit your details — background, goals, preferred destination, and timeline." },
   { n: "02", title: "Get Your Profile Reviewed", desc: "We assess your qualifications, documents, budget, and study goals." },
   { n: "03", title: "Choose Your Best Options", desc: "We recommend suitable countries, courses, and universities." },
   { n: "04", title: "Prepare and Submit Applications", desc: "We guide your documents, applications, and follow-up." },
@@ -93,18 +94,13 @@ const Index = () => (
             Study Abroad from Nigeria — at <span className="text-accent-glow">No Cost</span> to You
           </h1>
           <p className="mt-5 text-lg text-primary-foreground/85 leading-relaxed max-w-xl">
-            Honest, end-to-end guidance from your first consultation to your arrival abroad.
+            Honest, end-to-end guidance from your first application to your arrival abroad.
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+        <div className="mt-8 flex justify-start">
             <Button asChild variant="hero" size="xl" className="hover:scale-105 transition-transform">
-              <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
-                Book a Free Consultation <ArrowRight className="ml-1 h-4 w-4" />
-              </a>
-            </Button>
-            <Button asChild variant="heroOutline" size="xl">
-              <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noreferrer">
-                <MessageCircle className="mr-1 h-4 w-4" /> Chat on WhatsApp
-              </a>
+              <ApplyNowLink>
+                Apply Now for a Free Consultation<ArrowRight className="ml-1 h-4 w-4" />
+              </ApplyNowLink>
             </Button>
           </div>
         </div>
@@ -294,9 +290,9 @@ const Index = () => (
         </div>
         <div className="mt-12 text-center">
           <Button asChild variant="cta" size="lg">
-            <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
+            <ApplyNowLink>
               Start Your Application Journey <ArrowRight className="h-4 w-4" />
-            </a>
+            </ApplyNowLink>
           </Button>
         </div>
       </div>

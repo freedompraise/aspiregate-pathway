@@ -116,10 +116,9 @@ const BlogIndex = () => {
 
             <div className="mt-16">
               <BlogCTA
-                title="Prefer to talk it through?"
-                text="Book a free consultation with AspireGate to discuss your goals, timeline, and realistic next steps."
-                buttonText="Book a Free Consultation"
-                buttonHref={SITE_CONFIG.calendlyUrl}
+                title="Ready for personalised guidance?"
+                text="Apply now and share your goals, timeline, and background. We will review your details and get back to you."
+                buttonText="Apply Now"
                 variant="hero"
               />
             </div>

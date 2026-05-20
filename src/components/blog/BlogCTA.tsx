@@ -1,3 +1,6 @@
+import type { ReactNode } from "react";
+import { Link } from "react-router-dom";
+import { ApplyNowLink } from "@/components/site/ApplyNowLink";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { SITE_CONFIG } from "@/lib/siteConfig";
@@ -11,18 +14,37 @@ interface BlogCTAProps {
 }
 
 const DEFAULT_TITLE = "Need help with your study abroad application?";
-const DEFAULT_TEXT =
-  "AspireGate can help you understand your options and prepare your next step.";
-const DEFAULT_BUTTON = "Book a Free Consultation";
+const DEFAULT_TEXT = "Share your details and AspireGate will review your options and get back to you.";
+const DEFAULT_BUTTON = "Apply Now";
+
+function CtaButton({ href, children, variant }: { href: string; children: ReactNode; variant: "soft" | "hero" }) {
+  const isInternal = href.startsWith("/");
+
+  if (isInternal) {
+    return (
+      <Button asChild className="mt-6" variant={variant === "hero" ? "secondary" : "cta"} size="lg">
+        <Link to={href}>{children}</Link>
+      </Button>
+    );
+  }
+
+  return (
+    <Button asChild className="mt-6" variant={variant === "hero" ? "secondary" : "cta"} size="lg">
+      <a href={href} target="_blank" rel="noreferrer">
+        {children}
+      </a>
+    </Button>
+  );
+}
 
 export function BlogCTA({
   title = DEFAULT_TITLE,
   text = DEFAULT_TEXT,
   buttonText = DEFAULT_BUTTON,
-  buttonHref = SITE_CONFIG.calendlyUrl,
+  buttonHref = SITE_CONFIG.applyNowPath,
   variant = "soft",
 }: BlogCTAProps) {
-  const href = buttonHref?.trim() || SITE_CONFIG.calendlyUrl;
+  const href = buttonHref?.trim() || SITE_CONFIG.applyNowPath;
 
   return (
     <Card
@@ -37,11 +59,15 @@ export function BlogCTA({
         <p className={`mt-3 text-base leading-relaxed ${variant === "hero" ? "text-primary-foreground/90" : "text-muted-foreground"}`}>
           {text}
         </p>
-        <Button asChild className="mt-6" variant={variant === "hero" ? "secondary" : "cta"} size="lg">
-          <a href={href} target="_blank" rel="noreferrer">
+        {href === SITE_CONFIG.applyNowPath ? (
+          <Button asChild className="mt-6" variant={variant === "hero" ? "secondary" : "cta"} size="lg">
+            <ApplyNowLink>{buttonText}</ApplyNowLink>
+          </Button>
+        ) : (
+          <CtaButton href={href} variant={variant}>
             {buttonText}
-          </a>
-        </Button>
+          </CtaButton>
+        )}
       </div>
     </Card>
   );

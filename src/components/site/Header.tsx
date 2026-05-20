@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { ApplyNowLink } from "@/components/site/ApplyNowLink";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Menu, MessageCircle, X } from "lucide-react";
 import { useState } from "react";
@@ -41,16 +42,8 @@ const Header = () => {
         </nav>
         <div className="hidden md:block">
           <div className="flex items-center gap-2">
-            <Button asChild variant="outline" size="sm">
-              <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noreferrer">
-                <MessageCircle className="h-4 w-4" />
-                WhatsApp
-              </a>
-            </Button>
             <Button asChild variant="cta" size="sm">
-              <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
-                Book Free Consultation
-              </a>
+              <ApplyNowLink>Apply Now</ApplyNowLink>
             </Button>
           </div>
         </div>
@@ -78,16 +71,8 @@ const Header = () => {
                 {l.label}
               </NavLink>
             ))}
-            <Button asChild variant="outline" className="mt-2">
-              <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noreferrer">
-                <MessageCircle className="h-4 w-4" />
-                Chat on WhatsApp
-              </a>
-            </Button>
-            <Button asChild variant="cta">
-              <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
-                Book Free Consultation
-              </a>
+            <Button asChild variant="cta" onClick={() => setOpen(false)}>
+              <ApplyNowLink>Apply Now</ApplyNowLink>
             </Button>
           </div>
         </div>

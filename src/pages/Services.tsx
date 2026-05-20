@@ -1,3 +1,4 @@
+import { ApplyNowLink } from "@/components/site/ApplyNowLink";
 import Layout from "@/components/site/Layout";
 import SectionHeading from "@/components/site/SectionHeading";
 import CTASection from "@/components/site/CTASection";
@@ -15,13 +16,11 @@ import {
   HeartHandshake,
   CheckCircle2,
 } from "lucide-react";
-import { SITE_CONFIG } from "@/lib/siteConfig";
-
 const sections = [
   {
     icon: Calendar,
     title: "Free Study Abroad Consultation",
-    lead: "Your journey starts with a conversation. We listen to your goals, academic background, country preference, budget, and timeline — then help you understand suitable options.",
+    lead: "Your journey starts when you apply. Share your goals, academic background, country preference, budget, and timeline — we review your details and get back to you with suitable options.",
     items: [
       "Your current qualification",
       "Your preferred course and country",
@@ -121,7 +120,7 @@ const sections = [
 ];
 
 const fullProcess = [
-  ["01", "Consultation", "You book a free consultation and share your goals."],
+  ["01", "Apply", "You submit the Apply Now form with your background and goals."],
   ["02", "Profile Assessment", "We review your education, documents, budget, destination, and career goals."],
   ["03", "Route Planning", "We suggest possible countries, courses, and institutions for your profile."],
   ["04", "Document Preparation", "We guide you on what to prepare and how to organise your documents."],
@@ -146,9 +145,9 @@ const Services = () => (
         </p>
         <div className="mt-8">
           <Button asChild variant="cta" size="xl">
-            <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
-              Book a Free Consultation <ArrowRight className="ml-1 h-4 w-4" />
-            </a>
+            <ApplyNowLink>
+              Apply Now <ArrowRight className="ml-1 h-4 w-4" />
+            </ApplyNowLink>
           </Button>
         </div>
       </div>

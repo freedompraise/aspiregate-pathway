@@ -1,3 +1,4 @@
+import { ApplyNowLink } from "@/components/site/ApplyNowLink";
 import Layout from "@/components/site/Layout";
 import SectionHeading from "@/components/site/SectionHeading";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -134,7 +135,7 @@ const faqs: { q: string; a: ReactNode }[] = [
     q: "How do I get started?",
     a: (
       <p>
-        Book a free consultation, share your academic background and goals, and AspireGate will help you understand your best next step.
+        Complete the Apply Now form with your academic background and goals, and AspireGate will get back to you with your best next step.
       </p>
     ),
   },
@@ -246,9 +247,7 @@ const Contact = () => (
         </Card>
         <div className="mt-10 text-center">
           <Button asChild variant="cta" size="xl">
-            <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noreferrer">
-              Book a Free Consultation
-            </a>
+            <ApplyNowLink>Apply Now</ApplyNowLink>
           </Button>
         </div>
       </div>

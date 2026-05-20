@@ -1,4 +1,4 @@
-/** AspireGate Services Limited — consultation booking */
+/** AspireGate Services Limited — study destinations data */
 
 export const DESTINATION_TAGS = [
   "pr-friendly",

@@ -32,6 +32,7 @@ import {
   type PriorityId,
   type QuizAnswers,
 } from "@/data/destinationsData";
+import { ApplyNowLink } from "@/components/site/ApplyNowLink";
 import { SITE_CONFIG } from "@/lib/siteConfig"; 
 
 const initialQuiz: QuizAnswers = {
@@ -294,16 +295,16 @@ const Destinations = () => {
             <Card className="mt-8 border-border/60 p-8 text-center shadow-card">
               <p className="font-medium text-foreground">
                 No destination perfectly matches every preference. Try adjusting your priorities or book a free
-                consultation.
+                application review.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
                 <Button type="button" variant="outline" onClick={() => scrollTo(priorityRef.current)}>
                   Change priority
                 </Button>
                 <Button asChild variant="cta">
-                  <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer">
-                    Book a Free Consultation
-                  </a>
+                  <ApplyNowLink>
+                    Apply Now
+                  </ApplyNowLink>
                 </Button>
               </div>
             </Card>
@@ -358,9 +359,9 @@ const Destinations = () => {
           {shortlistMode && shortlistDestinations.length > 0 && (
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <Button asChild variant="cta" size="lg">
-                <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer">
-                  Get Personalised Guidance
-                </a>
+                <ApplyNowLink>
+                  Apply Now
+                </ApplyNowLink>
               </Button>
             </div>
           )}
@@ -457,9 +458,9 @@ const Destinations = () => {
           </div>
           <div className="flex flex-wrap gap-3 pt-2">
             <Button asChild variant="cta">
-              <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer">
-                Discuss My Best-Fit Country
-              </a>
+              <ApplyNowLink>
+                Apply Now
+              </ApplyNowLink>
             </Button>
             <Button type="button" variant="outline" onClick={() => setCompareOpen(false)}>
               Close
@@ -561,9 +562,9 @@ const Destinations = () => {
 
         <div className="mt-10 flex flex-wrap justify-center gap-3">
           <Button asChild variant="cta" size="lg">
-            <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer">
-              Book a Free Consultation
-            </a>
+            <ApplyNowLink>
+              Apply Now
+            </ApplyNowLink>
           </Button>
         </div>
       </section>
@@ -714,9 +715,9 @@ const Destinations = () => {
                             {compareSlugs.includes(destination.slug) ? "Remove from Compare" : "Add to Compare"}
                           </Button>
                           <Button asChild variant="secondary" size="sm">
-                              <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer">
-                              Discuss This Country
-                            </a>
+                              <ApplyNowLink>
+                              Apply Now
+                            </ApplyNowLink>
                           </Button>
                         </div>
                       </Card>
@@ -728,9 +729,9 @@ const Destinations = () => {
                 </p>
                 <div className="flex flex-wrap justify-center gap-3">
                   <Button asChild variant="cta">
-                    <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer">
-                      Book a Free Consultation
-                    </a>
+                    <ApplyNowLink>
+                      Apply Now
+                    </ApplyNowLink>
                   </Button>
                   <Button type="button" variant="outline" onClick={resetQuizFlow}>
                     Retake quiz
@@ -751,14 +752,14 @@ const Destinations = () => {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button asChild variant="cta" size="xl">
-              <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer">
-                Book a Free Consultation <ArrowRight className="h-4 w-4" />
-              </a>
+              <ApplyNowLink>
+                Apply Now <ArrowRight className="h-4 w-4" />
+              </ApplyNowLink>
             </Button>
             <Button asChild variant="outline" size="xl">
-                <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer">
-                Get Personalised Guidance
-              </a>
+                <ApplyNowLink>
+                Apply Now
+              </ApplyNowLink>
             </Button>
           </div>
         </Card>
@@ -828,9 +829,9 @@ function DestinationDetailPanel({
           {inCompare ? "Remove from Compare" : "Add to Compare"}
         </Button>
         <Button asChild variant="cta" size="sm">
-          <a href={SITE_CONFIG.calendlyUrl} target="_blank" rel="noopener noreferrer">
-            Book a Free Consultation
-          </a>
+          <ApplyNowLink>
+            Apply Now
+          </ApplyNowLink>
         </Button>
       </div>
     </div>

@@ -67,6 +67,7 @@ const Footer = () => (
           <li><Link to="/services" className="hover:text-primary transition-smooth">Services & Process</Link></li>
           <li><Link to="/destinations" className="hover:text-primary transition-smooth">Study Destinations</Link></li>
           <li><Link to="/blog" className="hover:text-primary transition-smooth">Blog</Link></li>
+          <li><Link to="/apply_now" className="hover:text-primary transition-smooth">Apply Now</Link></li>
           <li><Link to="/contact" className="hover:text-primary transition-smooth">FAQs & Contact</Link></li>
         </ul>
       </div>

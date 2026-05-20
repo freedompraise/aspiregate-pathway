@@ -629,7 +629,7 @@ const Destinations = () => {
           ))}
         </div>
       </section>
-
+{/* 
       <section className="bg-muted/30 py-14 md:py-18" aria-labelledby="quiz-heading">
         <div className="container max-w-lg">
           <SectionHeading
@@ -740,7 +740,7 @@ const Destinations = () => {
             )}
           </Card>
         </div>
-      </section>
+      </section> */}
 
       <section className="container py-14 md:py-28">
         <Card className="border-border/60 bg-card p-8 text-center shadow-card md:p-12">

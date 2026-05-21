@@ -12,7 +12,7 @@ import { Mail, MessageCircle, Phone } from "lucide-react";
 import type { ReactNode } from "react";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 
-const FORMSPREE_ACTION = "https://formspree.io/f/xqenyyvn";
+const FORMSPREE_ACTION = "https://formspree.io/f/mredqbnr";
 
 const faqs: { q: string; a: ReactNode }[] = [
   {

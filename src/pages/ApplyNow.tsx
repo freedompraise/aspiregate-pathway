@@ -14,7 +14,7 @@ import {
 import { SITE_CONFIG } from "@/lib/siteConfig";
 import { cn } from "@/lib/utils";
 
-const FORMSPREE_ACTION = "https://formspree.io/f/xbdbdpqq";
+const FORMSPREE_ACTION = "https://formspree.io/f/xykvwkgz";
 
 const selectClassName = cn(
   "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background",

@@ -20,6 +20,7 @@ import { ApplyNowLink } from "@/components/site/ApplyNowLink";
 import Layout from "@/components/site/Layout";
 import SectionHeading from "@/components/site/SectionHeading";
 import CTASection from "@/components/site/CTASection";
+import { CountryFlag, type CountryCode } from "@/components/site/CountryFlag";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 import heroImg from "@/assets/hero-student.jpg";
 
@@ -48,15 +49,15 @@ const services = [
   { icon: HeartHandshake, title: "Post-Arrival Guidance", desc: "Continued support with practical next steps after you arrive." },
 ];
 
-const destinations = [
-  { name: "United Kingdom", flag: "🇬🇧" },
-  { name: "Canada", flag: "🇨🇦" },
-  { name: "United States", flag: "🇺🇸" },
-  { name: "Ireland", flag: "🇮🇪" },
-  { name: "Germany", flag: "🇩🇪" },
-  { name: "Australia", flag: "🇦🇺" },
-  { name: "France", flag: "🇫🇷" },
-  { name: "United Arab Emirates", flag: "🇦🇪" },
+const destinations: { name: string; code: CountryCode }[] = [
+  { name: "United Kingdom", code: "GB" },
+  { name: "Canada", code: "CA" },
+  { name: "United States", code: "US" },
+  { name: "Ireland", code: "IE" },
+  { name: "Germany", code: "DE" },
+  { name: "Australia", code: "AU" },
+  { name: "France", code: "FR" },
+  { name: "United Arab Emirates", code: "AE" },
 ];
 
 const steps = [
@@ -230,7 +231,11 @@ const Index = () => (
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {destinations.map((d) => (
           <Card key={d.name} className="p-5 text-center hover:-translate-y-1 hover:shadow-elegant transition-smooth border-border/60 group">
-            <div className="text-4xl mx-auto group-hover:scale-110 transition-transform" aria-hidden>{d.flag}</div>
+            <CountryFlag
+              code={d.code}
+              title={d.name}
+              className="h-10 w-auto mx-auto group-hover:scale-110 transition-transform"
+            />
             <p className="mt-3 font-semibold text-primary">{d.name}</p>
           </Card>
         ))}

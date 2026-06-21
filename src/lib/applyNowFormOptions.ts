@@ -36,6 +36,63 @@ export const DOCUMENT_STATUS_OPTIONS = [
   "Not sure what's required yet",
 ] as const;
 
+export const COURSE_OPTION_OTHER = "Other" as const;
+
+export const INTENDED_COURSE_SAME_AS_PREVIOUS = "Same as my previous course" as const;
+
+export const INTENDED_COURSE_NOT_SURE = "Not sure yet — I need guidance" as const;
+
+export const PREVIOUS_COURSE_FIELDS = [
+  "Accounting & Finance",
+  "Business Administration",
+  "Economics",
+  "Marketing",
+  "Computer Science / IT",
+  "Data Science / Analytics",
+  "Cybersecurity",
+  "Engineering",
+  "Medicine / Health Sciences",
+  "Nursing",
+  "Public Health",
+  "Law",
+  "Education",
+  "Mass Communication / Media",
+  "International Relations",
+  "Social Sciences",
+  "Psychology",
+  "Arts & Design",
+  "Hospitality & Tourism",
+  "Agriculture",
+  "Science / Laboratory Science",
+  COURSE_OPTION_OTHER,
+] as const;
+
+export const INTENDED_COURSE_OPTIONS = [
+  INTENDED_COURSE_SAME_AS_PREVIOUS,
+  INTENDED_COURSE_NOT_SURE,
+  "Business / Management",
+  "Accounting & Finance",
+  "MBA",
+  "Data Science / Analytics",
+  "Cybersecurity",
+  "Computer Science / Software Engineering",
+  "Artificial Intelligence",
+  "Engineering",
+  "Public Health",
+  "Nursing / Healthcare",
+  "Education",
+  "Law",
+  "International Relations",
+  "Media / Communication",
+  "Creative Arts / Design",
+  "Hospitality & Tourism",
+  "Project Management",
+  "Supply Chain / Logistics",
+  "Social Work",
+  "Psychology",
+  COURSE_OPTION_OTHER,
+] as const;
+
 /** Documents the applicant may already have (optional checkboxes). */
 export const DOCUMENTS_ON_HAND = [
   "Passport copy",

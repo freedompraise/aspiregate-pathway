@@ -222,8 +222,8 @@ const Destinations = () => {
           <p className="text-xs font-semibold uppercase tracking-wider text-accent-glow">AspireGate Services Limited</p>
           <h1 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">Compare the Best Countries to Study Abroad</h1>
           <p className="mt-6 text-lg leading-relaxed text-primary-foreground/90 md:text-xl">
-            Compare tuition, post-study work opportunities, settlement outlook, and long-term career potential — then
-            build a confident shortlist that matches your goals.
+            Compare tuition, post-study work, and settlement outlook across the UK, North America, Europe, the UAE,
+            Malaysia, and Singapore — then build a shortlist that matches your goals.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
             <Button
@@ -475,7 +475,7 @@ const Destinations = () => {
           align="left"
           eyebrow="Full directory"
           title="Compare all destinations"
-          description="Every country below includes tuition context, post-study options, settlement outlook, and candid notes on when it may not be the right fit."
+          description="Twelve destinations, including Spain, Malta, Malaysia, and Singapore. Each row covers tuition context, post-study options, settlement outlook, and when the country may not be the right fit."
         />
 
         <div className="mt-8 hidden overflow-hidden rounded-xl border border-border/60 bg-card shadow-card lg:block">
@@ -603,7 +603,7 @@ const Destinations = () => {
           id="goals-heading"
           eyebrow="Quick paths"
           title="Goal-based recommendations"
-          description="Jump straight to a shortlist shaped around a common ambition. You can still adjust your picks afterwards."
+          description="Shortlists for settlement, English-speaking Europe, affordable study, Asian education, technology, hospitality, and long-term migration. You can still adjust your picks afterwards."
         />
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {GOAL_SECTIONS.map((goal) => (

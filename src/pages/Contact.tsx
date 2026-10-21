@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ApplyNowLink } from "@/components/site/ApplyNowLink";
 import Layout from "@/components/site/Layout";
 import SectionHeading from "@/components/site/SectionHeading";
@@ -10,11 +11,22 @@ import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { Mail, MessageCircle, Phone } from "lucide-react";
 import type { ReactNode } from "react";
+import { FORMS } from "@/lib/formspree";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 
-const FORMSPREE_ACTION = "https://formspree.io/f/mredqbnr";
-
 const faqs: { q: string; a: ReactNode }[] = [
+  {
+    q: "Can I check if I am ready for a Canadian study permit?",
+    a: (
+      <p>
+        Yes. Use the free{" "}
+        <Link to="/canada-readiness" className="text-primary underline underline-offset-2">
+          Canada Study Permit Readiness Check
+        </Link>
+        . It walks through school, funds, purpose, and papers, then shows where your file stands so you know what to work on.
+      </p>
+    ),
+  },
   {
     q: "What services does AspireGate offer?",
     a: (
@@ -31,7 +43,7 @@ const faqs: { q: string; a: ReactNode }[] = [
         <p>We support students applying to:</p>
         <ul className="mt-3 list-disc space-y-1 pl-5">
           <li>United Kingdom (our strongest network and most school options)</li>
-          <li>Canada</li>
+          <li>Canada — start with the free study-permit readiness check if that is your destination</li>
           <li>United States</li>
           <li>Australia</li>
           <li>Ireland</li>
@@ -183,8 +195,10 @@ const Contact = () => (
           description="Tell us how we can help. We read every enquiry and reply as soon as we can."
         />
         <Card className="mt-8 p-6 md:p-8 border-border/60 shadow-card">
-          <form action={FORMSPREE_ACTION} method="POST" className="space-y-5">
+          <form action={FORMS.contact} method="POST" className="space-y-5">
             <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+            <input type="hidden" name="form_type" value="contact" />
+            <input type="hidden" name="_subject" value="New contact message — AspireGate" />
             <div className="space-y-2">
               <Label htmlFor="contact-name">Full name</Label>
               <Input id="contact-name" name="name" type="text" required placeholder="Your name" autoComplete="name" />

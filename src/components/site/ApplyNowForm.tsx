@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { ReadinessPromo } from "@/components/canadaReadiness/ReadinessPromo";
 import { SearchableCombobox } from "@/components/ui/searchable-combobox";
 import {
   BUDGET_CURRENCIES,
@@ -16,9 +17,8 @@ import {
   PREFERRED_COUNTRIES,
   PREVIOUS_COURSE_FIELDS,
 } from "@/lib/applyNowFormOptions";
+import { FORMS } from "@/lib/formspree";
 import { cn } from "@/lib/utils";
-
-const FORMSPREE_ACTION = "https://formspree.io/f/xykvwkgz";
 
 const selectClassName = cn(
   "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background",
@@ -144,7 +144,7 @@ export function ApplyNowForm() {
 
   return (
     <Card className="p-6 md:p-8 border-border/60 shadow-card">
-      <form action={FORMSPREE_ACTION} method="POST" className="space-y-6" onSubmit={handleSubmit} noValidate>
+      <form action={FORMS.consult} method="POST" className="space-y-6" onSubmit={handleSubmit} noValidate>
         <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
         <input type="hidden" name="form_type" value="apply_now" />
         <input type="hidden" name="_subject" value="New Apply Now request — AspireGate" />
@@ -184,6 +184,7 @@ export function ApplyNowForm() {
               </option>
             ))}
           </select>
+          <ReadinessPromo tone="compact" className="mt-3" />
         </div>
 
         <div className="space-y-2">

@@ -15,6 +15,7 @@ export const routes: RouteRecord[] = [
       { path: "destinations", lazy: lazyPage(() => import("@/pages/Destinations")) },
       { path: "contact", lazy: lazyPage(() => import("@/pages/Contact")) },
       { path: "apply_now", lazy: lazyPage(() => import("@/pages/ApplyNow")) },
+      { path: "canada-readiness", lazy: lazyPage(() => import("@/pages/CanadaReadiness")) },
       { path: "blog", lazy: lazyPage(() => import("@/pages/blog/BlogIndex")) },
       {
         path: "blog/category/:categorySlug",

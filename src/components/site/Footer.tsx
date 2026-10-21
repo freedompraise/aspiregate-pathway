@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { GraduationCap, Mail, MessageCircle, Phone } from "lucide-react";
+import { destinations } from "@/data/destinationsData";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 
 const socialLinks = [
@@ -66,6 +67,7 @@ const Footer = () => (
           <li><Link to="/" className="hover:text-primary transition-smooth">Home</Link></li>
           <li><Link to="/services" className="hover:text-primary transition-smooth">Services & Process</Link></li>
           <li><Link to="/destinations" className="hover:text-primary transition-smooth">Study Destinations</Link></li>
+          <li><Link to="/canada-readiness" className="hover:text-primary transition-smooth">Canada Permit Check</Link></li>
           <li><Link to="/blog" className="hover:text-primary transition-smooth">Blog</Link></li>
           <li><Link to="/apply_now" className="hover:text-primary transition-smooth">Apply Now</Link></li>
           <li><Link to="/contact" className="hover:text-primary transition-smooth">FAQs & Contact</Link></li>
@@ -74,9 +76,13 @@ const Footer = () => (
       <div>
         <h4 className="font-semibold text-foreground mb-3 text-sm">Destinations</h4>
         <ul className="space-y-2 text-sm text-muted-foreground">
-          <li>United Kingdom · Canada</li>
-          <li>USA · Ireland · Germany</li>
-          <li>Australia · France · UAE</li>
+          {destinations.map((d) => (
+            <li key={d.slug}>
+              <Link to={`/destinations#destination-panel-${d.slug}`} className="hover:text-primary transition-smooth">
+                {d.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
       <div>

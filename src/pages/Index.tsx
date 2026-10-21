@@ -3,13 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
   ArrowRight,
-  GraduationCap,
   FileCheck,
   Plane,
   ShieldCheck,
-  Globe2,
   Compass,
-  FileText,
   Award,
   MessageCircle,
   Sparkles,
@@ -21,6 +18,8 @@ import Layout from "@/components/site/Layout";
 import SectionHeading from "@/components/site/SectionHeading";
 import CTASection from "@/components/site/CTASection";
 import { CountryFlag, type CountryCode } from "@/components/site/CountryFlag";
+import { ReadinessPromo } from "@/components/canadaReadiness/ReadinessPromo";
+import { ENGLISH_TESTS, formatUsd } from "@/data/englishTests";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 import heroImg from "@/assets/hero-student.jpg";
 
@@ -40,14 +39,6 @@ const benefits = [
   { icon: Award, title: "Support Beyond Admission", desc: "Offer acceptance, deposit steps, CAS/COE guidance, visa prep, travel and arrival." },
 ];
 
-const services = [
-  { icon: GraduationCap, title: "Admission Support", desc: "Choose suitable universities, prepare your application, and follow it through." },
-  { icon: Globe2, title: "Course & Country Selection", desc: "Compare destinations and programmes against your profile, budget, and goals." },
-  { icon: FileText, title: "Document Preparation", desc: "Transcripts, CV, references, personal statements, SOPs, and checklists." },
-  { icon: ShieldCheck, title: "Visa Document Guidance", desc: "Understand required documents and how to prepare for the visa stage." },
-  { icon: Plane, title: "Pre-Departure Support", desc: "Accommodation, travel preparation, school registration, and arrival planning." },
-  { icon: HeartHandshake, title: "Post-Arrival Guidance", desc: "Continued support with practical next steps after you arrive." },
-];
 
 const destinations: { name: string; code: CountryCode }[] = [
   { name: "United Kingdom", code: "GB" },
@@ -197,25 +188,34 @@ const Index = () => (
       </div>
     </section>
 
-    {/* SERVICES PREVIEW */}
-    <section className="bg-gradient-soft py-20">
+    <section className="container pb-4">
+      <ReadinessPromo tone="banner" />
+    </section>
+
+    {/* TEST VOUCHERS */}
+    <section className="bg-gradient-soft py-16 md:py-20">
       <div className="container">
         <SectionHeading
-          eyebrow="What We Do"
-          title="Everything You Need to Start Your Study Abroad Journey"
+          eyebrow="English tests"
+          title="Book the test. We'll sort the voucher."
+          description="PTE, TOEFL, Duolingo, GRE, and CELPIP at today’s prices. Pay us, we buy the voucher, you show up ready."
         />
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((s) => (
-            <Card key={s.title} className="p-6 group hover:shadow-elegant transition-smooth border-border/60">
-              <s.icon className="h-8 w-8 text-accent group-hover:scale-110 transition-smooth" />
-              <h3 className="mt-4 font-semibold text-primary">{s.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-            </Card>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {ENGLISH_TESTS.filter((test) => test.available).map((test) => (
+            <Link
+              key={test.id}
+              to="/services#tests"
+              className="rounded-2xl border border-border/60 bg-card p-4 shadow-card transition-smooth hover:-translate-y-0.5 hover:shadow-elegant"
+            >
+              <p className="text-xs font-semibold uppercase tracking-wide text-accent">{test.vendor}</p>
+              <p className="mt-1 font-semibold leading-snug text-primary">{test.title}</p>
+              <p className="mt-3 text-lg font-bold text-primary">{formatUsd(test.priceUSD)}</p>
+            </Link>
           ))}
         </div>
-        <div className="mt-10 text-center">
+        <div className="mt-8 text-center">
           <Button asChild variant="cta" size="lg">
-            <Link to="/services">See Our Services <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/services#tests">See the tests <ArrowRight className="h-4 w-4" /></Link>
           </Button>
         </div>
       </div>
@@ -237,6 +237,11 @@ const Index = () => (
               className="h-10 w-auto mx-auto group-hover:scale-110 transition-transform"
             />
             <p className="mt-3 font-semibold text-primary">{d.name}</p>
+            {d.code === "CA" && (
+              <Link to={SITE_CONFIG.canadaReadinessPath} className="mt-2 inline-block text-xs font-medium text-accent hover:underline">
+                Check permit readiness
+              </Link>
+            )}
           </Card>
         ))}
       </div>

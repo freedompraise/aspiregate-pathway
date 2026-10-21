@@ -12,9 +12,15 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
 
+export type ComboboxOption = string | { value: string; label: string };
+
+function asOption(option: ComboboxOption): { value: string; label: string } {
+  return typeof option === "string" ? { value: option, label: option } : option;
+}
+
 type SearchableComboboxProps = {
   id: string;
-  options: readonly string[];
+  options: readonly ComboboxOption[];
   value: string;
   onValueChange: (value: string) => void;
   placeholder?: string;
@@ -38,6 +44,8 @@ export function SearchableCombobox({
   className,
 }: SearchableComboboxProps) {
   const [open, setOpen] = useState(false);
+  const normalized = options.map(asOption);
+  const selectedLabel = normalized.find((option) => option.value === value)?.label ?? value;
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -57,7 +65,7 @@ export function SearchableCombobox({
             className,
           )}
         >
-          <span className="truncate">{value || placeholder}</span>
+          <span className="truncate">{selectedLabel || placeholder}</span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -67,18 +75,18 @@ export function SearchableCombobox({
           <CommandList>
             <CommandEmpty>{emptyMessage}</CommandEmpty>
             <CommandGroup>
-              {options.map((option) => (
+              {normalized.map((option) => (
                 <CommandItem
-                  key={option}
-                  value={option}
+                  key={option.value}
+                  value={option.label}
                   onSelect={() => {
-                    onValueChange(option);
+                    onValueChange(option.value);
                     setOpen(false);
                   }}
                   className="py-2.5"
                 >
-                  <Check className={cn("mr-2 h-4 w-4", value === option ? "opacity-100" : "opacity-0")} />
-                  <span className="leading-snug">{option}</span>
+                  <Check className={cn("mr-2 h-4 w-4", value === option.value ? "opacity-100" : "opacity-0")} />
+                  <span className="leading-snug">{option.label}</span>
                 </CommandItem>
               ))}
             </CommandGroup>

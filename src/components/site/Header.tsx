@@ -9,6 +9,7 @@ const links = [
   { to: "/", label: "Home" },
   { to: "/services", label: "Services" },
   { to: "/destinations", label: "Study Destinations" },
+  { to: "/canada-readiness", label: "Canada Check" },
   { to: "/blog", label: "Blog" },
   { to: "/contact", label: "FAQs & Contact" },
 ];
@@ -24,7 +25,7 @@ const Header = () => {
           </span>
           <span className="text-primary">AspireGate</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-7">
+          <nav className="hidden md:flex items-center gap-5 lg:gap-7">
           {links.map((l) => (
             <NavLink
               key={l.to}

@@ -33,6 +33,7 @@ import {
   type QuizAnswers,
 } from "@/data/destinationsData";
 import { ApplyNowLink } from "@/components/site/ApplyNowLink";
+import { ReadinessPromo } from "@/components/canadaReadiness/ReadinessPromo";
 import { SITE_CONFIG } from "@/lib/siteConfig"; 
 
 const initialQuiz: QuizAnswers = {
@@ -245,6 +246,10 @@ const Destinations = () => {
             </Button>
           </div>
         </div>
+      </section>
+
+      <section className="container pt-10">
+        <ReadinessPromo tone="compact" />
       </section>
 
       <section ref={priorityRef} id="priority-selector" className="container py-14 md:py-18" aria-labelledby="priority-heading">
